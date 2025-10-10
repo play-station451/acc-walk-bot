@@ -1,4 +1,27 @@
 const mineflayer = require('mineflayer');
+const http = require('http');
+
+// --- 1. RENDER KEEPALIVE SERVER SETUP ---
+// Render automatically assigns a port to process.env.PORT.
+const PORT = process.env.PORT || 3000;
+
+const server = http.createServer((req, res) => {
+    // This is the path the external monitor will ping.
+    if (req.url === '/keepalive') {
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.end('Bot is ALIVE and Server is Running');
+        // Log the ping so you can see it working in the Render console
+        console.log(`[HTTP] Keepalive ping received at ${new Date().toISOString()}`);
+    } else {
+        res.writeHead(404);
+        res.end('Not Found');
+    }
+});
+
+server.listen(PORT, () => {
+    console.log(`[HTTP] Keepalive server listening on port ${PORT}`);
+    console.log(`[INFO] Set your external monitor to ping the /keepalive path.`);
+});
 
 // --- Configuration ---
 const BOT_CONFIG = {
