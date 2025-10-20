@@ -25,7 +25,7 @@ server.listen(PORT, () => {
 
 // --- Configuration ---
 const BOT_CONFIG = {
-    host: 'mc.madjikware.com',
+    host: 'crackedtn.amplifydev.tech',
     port: 25577,
     username: 'playstation451', // Use any desired name for the offline account
     version: '1.19.2',
