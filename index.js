@@ -26,7 +26,7 @@ server.listen(PORT, () => {
 // --- Configuration ---
 const BOT_CONFIG = {
     host: 'crackedtn.amplifydev.tech',
-    port: 25577,
+    port: 25565,
     username: 'playstation451', // Use any desired name for the offline account
     version: '1.19.2',
     auth: 'offline' // Explicitly set auth to 'offline' for cracked/offline mode servers
