@@ -40,6 +40,12 @@ const bot = mineflayer.createBot(BOT_CONFIG);
 // This event fires when the bot successfully logs in and is ready to interact
 bot.on('spawn', () => {
     console.log(`[${BOT_CONFIG.username}] Successfully spawned!`);
+
+    // ✅ NEW: Execute the login command immediately upon spawn
+    const loginCommand = '/login play451';
+    console.log(`[COMMAND] Executing: ${loginCommand}`);
+    bot.chat(loginCommand);
+
     console.log('Starting movement: Walking forward...');
 
     // The setControlState method simulates pressing a key.
